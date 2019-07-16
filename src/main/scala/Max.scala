@@ -1,19 +1,22 @@
 class Max {
-  /*def FindMax(list: List[Int]): Int={
-  val list:List[Int]= List(2,3,4,19)
-  var max=list(0)
-  //for(current<-0 to list.length-1)
-  /*  {
-      if(list(current)>max)
-        max=list(current)
-     var a= list.foreach(
-        println(a)
-      )
-   */ var a=list.foreach(
-    println(a)
-  )
-}
-/
- */
+  def max(list: List[Int]): Int = {
+    if (list.length != 0) {
+      def findMax(list: List[Int], max: Int = list.head): Int = {
 
+
+        list.head match {
+          case _ if ((list.head > max) && (list.tail == Nil)) => list.head
+          case _ if (list.tail == Nil) => max
+          case _ if (list.head > max) => findMax(list.tail, list.head)
+          case _ => findMax(list.tail, max)
+        }
+      }
+
+      return findMax(list)
+    }
+    else {
+      println("enter valid list")
+      return 0
+    }
+  }
 }

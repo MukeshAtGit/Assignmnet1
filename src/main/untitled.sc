@@ -1,14 +1,23 @@
-def printList(list: List[Int], i: Int = 0): Unit = {
-  val Len: Int = list.length - 1
-  i match {
-    case Len => println(s"$i =${list(i)}")
-    case _ => {
-      println(s"$i = ${list(i)}")
-      printList(list, i + 1)
+
+val list=List[Int]()
+def max(list: List[Int]): Int = {
+  if (list.length != 0) {
+    def findMax(list: List[Int], max: Int = list.head): Int = {
+
+
+      list.head match {
+        case _ if ((list.head > max) && (list.tail == Nil)) => list.head
+        case _ if (list.tail == Nil) => max
+        case _ if (list.head > max) => findMax(list.tail, list.head)
+        case _ => findMax(list.tail, max)
+      }
     }
-
-
+    return findMax(list)
+    }
+    else{
+    println("enter valid list")
+    return 0
   }
 }
-println(printList(List[Int](3, 4, 6, 4) ))
 
+println(max(list))

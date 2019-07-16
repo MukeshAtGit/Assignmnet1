@@ -1,10 +1,14 @@
 object main {
   def main(args: Array[String]): Unit = {
 
+    val list = List[Int](2,4,44,5)
+
     val interpolation = new Interpolation
-    interpolation.printList(List[Int](3, 4, 6, 4) )
-    //case 2 => val max = new Max
-    //  max.FindMax(list)
+    interpolation.printList(list)
+
+    val max1 = new Max
+   println( max1.max(list) )
+
     val fibonacci1 = new Fabbonacci
     println(fibonacci1.fibonacci(3))
 
